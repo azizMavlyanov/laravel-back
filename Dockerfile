@@ -22,5 +22,6 @@ ENV DB_USERNAME=$DB_USERNAME
 WORKDIR /app
 COPY . /app
 RUN composer install
+RUN php artisan migrate
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
 EXPOSE $PORT

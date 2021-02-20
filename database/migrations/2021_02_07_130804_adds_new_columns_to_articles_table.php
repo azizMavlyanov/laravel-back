@@ -14,10 +14,10 @@ class AddsNewColumnsToArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->string('heading', 300);
-            $table->string('subheading', 300);
-            $table->string('slug', 300)->unique()->nullable();
-            $table->string('meta', 300)->nullable();
+            $table->string('heading');
+            $table->string('subheading');
+            $table->string('slug')->unique()->nullable();
+            $table->string('meta')->nullable();
             $table->integer('version');
         });
     }

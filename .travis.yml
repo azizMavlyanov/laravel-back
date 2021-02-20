@@ -9,7 +9,7 @@ before_script:
   - docker login --username=$HEROKU_LOGIN --password=$HEROKU_API_KEY registry.heroku.com  
 
 script:
-  - docker build -t azizmavlyanov/laravel-back:v1 --build-arg JWT_SECRET=$JWT_SECRET --build-arg MAIL_PASSWORD=$MAIL_PASSWORD -f Dockerfile .
+  - docker build -t azizmavlyanov/laravel-back:v1 --build-arg DB_HOST=$DB_HOST --build-arg DB_DATABASE=$DB_DATABASE --build-arg DB_USERNAME=$DB_USERNAME --build-arg DB_PASSWORD=$DB_PASSWORD --build-arg JWT_SECRET=$JWT_SECRET --build-arg MAIL_PASSWORD=$MAIL_PASSWORD -f Dockerfile .
   - docker tag azizmavlyanov/laravel-back:v1 registry.heroku.com/$HEROKU_APP/web 
 
 deploy:   

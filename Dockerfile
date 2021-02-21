@@ -22,5 +22,11 @@ ENV DB_USERNAME=$DB_USERNAME
 WORKDIR /app
 COPY . /app
 RUN composer install
+RUN php artisan env:set DB_HOST=$DB_HOST
+RUN php artisan env:set DB_DATABASE=$DB_DATABASE
+RUN php artisan env:set DB_PASSWORD=$DB_PASSWORD
+RUN php artisan env:set DB_USERNAME=$DB_USERNAME
+RUN php artisan env:set JWT_SECRET=$JWT_SECRET
+RUN php artisan env:set MAIL_PASSWORD=$MAIL_PASSWORD
 CMD php artisan serve --host=0.0.0.0 --port=$PORT
 EXPOSE $PORT
